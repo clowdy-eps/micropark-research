@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin-top: 40px;
+}
+
+.header {
+  margin-left: 40px;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  gap: 10%;
+  padding-bottom: 2vh;
+}
+
+.header-link:hover {
+  color: #67dc15;
+  cursor: pointer;
+}
