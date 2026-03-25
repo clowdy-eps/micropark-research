@@ -7,25 +7,23 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
     <script defer src="javascripts/scripts.js"></script>
   </head>
-  <!-- <img class="background" src="images/background.png" alt="" /> -->
+  <!-- <img class="background" src="images/background-mobile.png" alt="" /> -->
   <body>
     <!-- ХЕДЕР -->
     <header>
       <p>ИССЛЕДОВАТЕЛЬСКИЙ<br />ХАБ МИКРОПАРКА</p>
-      <button class="header-link">Измерения</button>
-      <button class="header-link">Мутации</button>
-      <button class="header-link">Карта посадок</button>
+      <a href="#section-1" class="header-link">Измерения</a>
+      <a href="#section-2" class="header-link">Мутации</a>
+      <a href="#section-3" class="header-link">Карта посадок</a>
     </header>
 
     <div class="main-wrapper">
       <!-- ОСНОВНАЯ ЧАСТЬ -->
       <main>
-        <section class="section-1">
+        <section id="section-1" class="section-1">
           <div class="border-1"></div>
-          <div class="heading-1">
-            <div class="typewriter-1">
-              <h1>ПРОВЕДИ АНАЛИЗ НАСЕКОМОГО</h1>
-            </div>
+          <div class="heading">
+            <h1>ПРОВЕДИ АНАЛИЗ НАСЕКОМОГО</h1>
           </div>
           <div class="wrapper-2">
             <div class="wrapper-1">
@@ -53,12 +51,10 @@
         </section>
 
         <!-- СЕКЦИЯ 2 -->
-        <section class="section-2">
+        <section id="section-2" class="section-2">
           <div class="block-1">
-            <div class="heading-2">
-              <div class="typewriter-2">
-                <h1>ВЫЯВИ МУТАЦИЮ РАСТЕНИЯ</h1>
-              </div>
+            <div class="heading">
+              <h1>ВЫЯВИ МУТАЦИЮ РАСТЕНИЯ</h1>
             </div>
           </div>
 
@@ -84,43 +80,49 @@
 
             <div class="console">
               <div class="console-name"><p>КОНСОЛЬ</p></div>
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
-              <img src=".//images/section-2/danger.svg" alt="" />
+
+              <input
+                type="text"
+                class="console-input"
+                placeholder="Введи имя мутации"
+              />
+
+              <div class="console-warnings active">
+                <img src=".//images/section-2/danger.svg" alt="Опасность" />
+                <img src=".//images/section-2/danger.svg" alt="Опасность" />
+                <img src=".//images/section-2/danger.svg" alt="Опасность" />
+                <img src=".//images/section-2/danger.svg" alt="Опасность" />
+                <img src=".//images/section-2/danger.svg" alt="Опасность" />
+                <img src=".//images/section-2/danger.svg" alt="Опасность" />
+                <img src=".//images/section-2/danger.svg" alt="Опасность" />
+              </div>
             </div>
           </div>
         </section>
 
         <!-- СЕКЦИЯ 3 -->
-        <section class="section-3">
+        <section id="section-3" class="section-3">
           <div class="block-1">
-            <h1 class="heading-1">
-              ВЫБЕРИ МЕСТО ДЛЯ ВЫСАДКИ<br />ГИГАНТСКОЙ ЛИЛИИ
+            <h1 class="heading">
+              ВЫБЕРИ МЕСТО<br />ДЛЯ ВЫСАДКИ<br />ГИГАНТСКОЙ ЛИЛИИ
             </h1>
           </div>
           <div class="map">
             <!-- карта -->
             <img src=".//images/section-3/map.svg" alt="" />
             <!-- пункты -->
-            <img src=".//images/section-3/point.svg" alt="" />
-            <img src=".//images/section-3/point.svg" alt="" />
-            <img src=".//images/section-3/point.svg" alt="" />
-            <img src=".//images/section-3/point.svg" alt="" />
-            <img src=".//images/section-3/point.svg" alt="" />
-            <img src=".//images/section-3/point.svg" alt="" />
-            <img src=".//images/section-3/point.svg" alt="" />
+            <img class="point" src=".//images/section-3/point.svg" alt="" />
+            <img class="point" src=".//images/section-3/point.svg" alt="" />
+            <img class="point" src=".//images/section-3/point.svg" alt="" />
+            <img class="point" src=".//images/section-3/point.svg" alt="" />
+            <img class="point" src=".//images/section-3/point.svg" alt="" />
+            <img class="point" src=".//images/section-3/point.svg" alt="" />
           </div>
         </section>
       </main>
 
       <!-- БОКОВОЕ МЕНЮ -->
-      <aside class="sidebar">
+      <section class="sidebar">
         <!-- Инструменты -->
         <div class="sidebar-block">ИНСТРУМЕНТЫ</div>
         <div class="instruments">
@@ -182,7 +184,7 @@
             </div>
           </section>
         </div>
-      </aside>
+      </section>
     </div>
 
     <!--ФУТЕР -->

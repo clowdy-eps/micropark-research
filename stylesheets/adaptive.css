@@ -1,12 +1,5 @@
-@media (max-width: 1441px) {
-  .typewriter-1 {
-    width: 60vw !important;
-  }
-}
+/* 768x1024 (Планшет - Portrait XGA)     */
 
-/* ========================================= */
-/* 768x1024 (Планшет - Portrait XGA)         */
-/* ========================================= */
 @media (max-width: 768px) {
   html,
   body {
@@ -14,7 +7,7 @@
     max-width: 100%;
   }
 
-  /* 1. ШАПКА: оставляем ссылки, но делаем компактнее */
+  /*ШАПКА*/
   header {
     padding: 3vw 5vw;
     gap: 4%;
@@ -24,13 +17,12 @@
     padding: 1vw 2vw;
   }
 
-  /* 2. ГЛАВНАЯ СЕТКА: скидываем сайдбар вниз */
+  /* ГЛАВНАЯ СЕТКА */
   .main-wrapper {
     flex-direction: column;
-    padding-top: 15vw; /* Компенсируем высоту шапки */
+    padding-top: 15vw;
   }
 
-  /* Секции забирают всю ширину */
   .section-1,
   .section-2,
   .section-3 {
@@ -39,11 +31,12 @@
     border-right: none;
   }
 
-  /* 4. СЕКЦИЯ 1: перестроение в колонку (Stacking) */
+  /* СЕКЦИЯ 1 */
   h1 {
     font-size: 46px;
   }
-  .heading-1 {
+
+  .heading {
     padding: 8vw 5vw 3vw 5vw;
   }
 
@@ -80,18 +73,11 @@
     background-size: cover;
   }
 
-  /* Позиционирование стрекозы для планшета */
-  /* .dragonfly-img {
-    width: 55%;
-    top: 15%;
-    left: 22%;
-    padding: 0;
-  } */
   .dragonfly img:nth-of-type(2) {
     margin: 0;
     top: 12%;
     left: 30%;
-    width: 25%;
+    width: 50%;
   }
   .dragonfly img:nth-of-type(3) {
     margin: 0;
@@ -137,7 +123,7 @@
     font-size: 20px;
   }
 
-  /* 5. СЕКЦИИ 2 И 3: центрирование и воздух */
+  /* СЕКЦИИ 2 И 3 */
   .block-2 {
     flex-direction: column;
   }
@@ -174,6 +160,10 @@
     max-width: 100%;
   }
 
+  body {
+    padding-bottom: 15vw;
+  }
+
   header,
   main,
   .main-wrapper {
@@ -181,27 +171,18 @@
     min-width: auto;
   }
 
+  /* Хедер */
   header {
     padding: 3vw 5vw;
   }
-
   header p {
     font-size: 4vw;
   }
-
   .header-link {
     display: none;
   }
 
-  /* САЙДБАР: превращаем в горизонтальный дашборд внизу */
-  .sidebar {
-    width: 100%;
-    height: auto;
-    border-left: none;
-    border-top: 1px solid #000;
-    top: 90%;
-    position: fixed; /* Отменяем залипание */
-  }
+  /* Боковое меню */
   .tasks,
   .sidebar-block:nth-of-type(1),
   .sidebar-block:nth-of-type(2),
@@ -211,11 +192,16 @@
     display: none;
   }
 
-  /* Инструменты выстраиваем в ряд */
+  /* Инструменты */
   .instruments {
+    border-top: 1px solid #000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     display: flex;
     flex-direction: row;
+    background-color: #fff;
   }
   .pencil,
   .comparison,
@@ -226,30 +212,33 @@
     border-right: 1px solid #000;
     padding: 2vw;
   }
-  .scan {
+  .scan,
+  .pencil {
     border-right: none;
   }
 
+  /* Свойства секций */
   .section-1,
-  .section-2,
   .section-3 {
     width: 100%;
     height: auto;
     border-right: none;
   }
-
-  h1 {
-    font-size: 32px;
-    word-wrap: break-word;
+  .section-2 .wrapper-2 {
+    order: 1;
   }
 
-  .heading-1 {
+  /* Заголовки */
+  h1,
+  h2,
+  h3 {
+    font-size: 8vw;
+  }
+  .heading {
     padding: 13.5vw 5vw 1.5vw 5vw;
   }
-  .heading-2 {
-    padding: 18vw 5vw 6vw 5vw;
-  }
 
+  /* Обертки */
   .wrapper-2 {
     display: flex;
     flex-direction: column;
@@ -258,20 +247,87 @@
     display: contents;
   }
 
+  /* СЕКЦИЯ 1 */
+
+  /* Блок скрыт */
   .coordinates {
     display: none;
   }
 
+  /* БЛОК СО СТРЕКОЗОЙ*/
   .dragonfly {
     order: 2;
     width: 120%;
     height: 75vw;
     margin-left: 0;
-    position: relative;
-    overflow: hidden;
   }
 
+  /* размер стрекозы */
+  .dragonfly-img {
+    width: 65%;
+    height: auto;
+    padding: 0;
+    top: 10%;
+    left: 10%;
+  }
+
+  /* размерыи и расположение стреклочек */
+  .dragonfly img:nth-of-type(2) {
+    margin: 0;
+    top: 13%;
+    left: 24%;
+    width: 30%;
+  }
+  .dragonfly img:nth-of-type(3) {
+    margin: 0;
+    top: 64%;
+    left: 5%;
+    width: 30%;
+  }
+  .dragonfly img:nth-of-type(4) {
+    margin: 0;
+    top: 33%;
+    left: 65%;
+    width: 30%;
+  }
+
+  /* свойства подписей */
+  #txt-1,
+  #txt-2,
+  #txt-3,
+  #txt-4,
+  #txt-5 {
+    font-size: 5vw;
+  }
+  #txt-1 {
+    margin: 0;
+    top: 5%;
+    left: 25%;
+  }
+  #txt-2 {
+    margin: 0;
+    top: 55%;
+    left: 5%;
+  }
+  #txt-3 {
+    margin: 0;
+    top: 25%;
+    left: 65%;
+  }
+  #txt-4 {
+    margin: 0;
+    bottom: 5%;
+    left: 5%;
+  }
+  #txt-5 {
+    margin: 0;
+    bottom: 5%;
+    left: 55%;
+  }
+
+  /* БЛОК С ГРАФИКАМИ */
   .growth {
+    font-size: 6vw;
     order: 3;
     width: 100%;
     padding: 3vw 5vw;
@@ -285,84 +341,33 @@
     background-size: cover;
   }
 
-  .dragonfly-img {
-    width: 60%;
+  /* CЕКЦИЯ 2 */
+
+  /* .wrapper-2 {
+    display: flex;
+    align-items: flex-start;
+  } */
+
+  .section-2 {
+    width: 100%;
     height: auto;
-    padding: 0;
-    top: 10%;
-    left: 10%;
-  }
-
-  .dragonfly img:nth-of-type(2) {
-    margin: 0;
-    top: 12%;
-    left: 30%;
-    width: 30%;
-  }
-  .dragonfly img:nth-of-type(3) {
-    margin: 0;
-    top: 60%;
-    left: 15%;
-    width: 30%;
-  }
-  .dragonfly img:nth-of-type(4) {
-    margin: 0;
-    top: 35%;
-    left: 55%;
-    width: 30%;
-  }
-
-  #txt-1 {
-    margin: 0;
-    top: 5%;
-    left: 25%;
-    font-size: 24px;
-  }
-  #txt-2 {
-    margin: 0;
-    top: 55%;
-    left: 5%;
-    font-size: 24px;
-  }
-  #txt-3 {
-    margin: 0;
-    top: 25%;
-    left: 65%;
-    font-size: 24px;
-  }
-  #txt-4 {
-    margin: 0;
-    bottom: 5%;
-    left: 5%;
-    font-size: 24px;
-  }
-  #txt-5 {
-    margin: 0;
-    bottom: 5%;
-    right: 5%;
-    font-size: 24px;
-  }
-
-  .block-2 {
+    border-right: none;
     display: flex;
     flex-direction: column;
   }
 
-  .quantity,
-  .risk {
-    width: 90%;
-    margin: 3vw auto;
-    padding: 4.5vw 5vw;
-  }
-
+  /* БЛОК С РАСТЕНИЕМ */
   .plant {
-    width: 90%;
+    width: 50%;
     height: auto;
     min-height: 60vw;
     margin: 3vw auto;
     padding: 3vw 5vw;
   }
-
+  .plant p {
+    font-size: 5vw;
+  }
+  /* Картинка растения */
   .plant-img {
     width: 80%;
     height: auto;
@@ -371,51 +376,77 @@
     margin: 0 auto;
   }
 
+  /* БЛОК С ТЕКСТОВЫМИ АНИМАЦИЯМИ */
+  .block-2 {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+    height: auto;
+  }
+  .quantity,
+  .risk {
+    width: 90%;
+    margin: 3vw auto;
+    padding: 4.5vw 5vw;
+  }
+  .quantity p,
+  .risk p {
+    font-size: 5vw;
+  }
+  .button-1 {
+    font-size: 18px;
+  }
+
+  /* КОНСОЛЬ */
   .console {
     width: 90%;
-    height: 60vw;
+    height: 90vw;
     margin: 3vw auto;
     position: relative;
   }
-
   .console-name {
-    width: 100%;
     height: auto;
-    min-height: 40px;
+    min-height: 60px;
+    padding-left: 4vw;
   }
   .console-name p {
-    font-size: 18px;
-    margin: 10px;
+    font-size: 6vw;
+    left: 4vw;
+  }
+  .console-input {
+    top: 16vw;
+    left: 4vw;
+    font-size: 24px;
   }
 
-  .console img {
-    width: 30%;
-    height: auto;
-    margin: 0 !important;
+  /* размер плашек */
+  .console-warnings {
+    width: 125%;
   }
+  /* расположение плашек */
   .console img:nth-of-type(1) {
-    top: 20%;
+    top: 30%;
     left: 10%;
   }
   .console img:nth-of-type(2) {
-    top: 25%;
+    top: 37%;
     left: 40%;
   }
   .console img:nth-of-type(3) {
-    top: 15%;
-    left: 70%;
+    top: 33%;
+    left: 48%;
   }
   .console img:nth-of-type(4) {
     top: 45%;
-    left: 20%;
+    left: 6%;
   }
   .console img:nth-of-type(5) {
     top: 50%;
-    left: 60%;
+    left: 44%;
   }
   .console img:nth-of-type(6) {
     top: 70%;
-    left: 30%;
+    left: 32%;
   }
   .console img:nth-of-type(7) {
     top: 80%;
@@ -423,62 +454,35 @@
   }
   .console img:nth-of-type(8) {
     top: 75%;
-    left: 75%;
+    left: 24%;
   }
   .console img:nth-of-type(9) {
     top: 85%;
-    left: 50%;
+    left: 30%;
   }
 
-  /* .map {
+  /* СЕКЦИЯ 3 */
+  .map {
     width: 90%;
-    height: 60vw;
     margin: 3vw auto;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
+    height: auto;
+    display: block;
   }
 
   .map img:nth-of-type(1) {
     width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-  /* top: 0;
-    left: 0;
-    margin: 0;
-  }
-  .map img:not(:nth-of-type(1)) {
-    width: 6%;
     height: auto;
-    margin: 0 !important;
-    padding: 0 !important;
+    display: block;
   }
-  .map img:nth-of-type(2) {
-    top: 20%;
-    left: 15%;
+
+  /* размеры пунктов */
+  .point {
+    width: 6vw;
   }
-  .map img:nth-of-type(3) {
-    top: 45%;
-    left: 25%;
+
+  /* ПОДВАЛ */
+  footer {
+    padding-left: 30px;
+    font-size: 18px;
   }
-  .map img:nth-of-type(4) {
-    top: 60%;
-    left: 50%;
-  }
-  .map img:nth-of-type(5) {
-    top: 30%;
-    left: 70%;
-  }
-  .map img:nth-of-type(6) {
-    top: 70%;
-    left: 20%;
-  }
-  .map img:nth-of-type(7) {
-    top: 80%;
-    left: 80%;
-  }
-  .map img:nth-of-type(8) {
-    top: 50%;
-    left: 85%;
-  } */
 }
