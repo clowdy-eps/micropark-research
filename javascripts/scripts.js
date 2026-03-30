@@ -132,18 +132,28 @@ if (footerElement) {
 }
 
 // ИНТЕРАКТИВНАЯ КАРТА
-
 const mapPoints = document.querySelectorAll('.point') // все метки
 const mapOverlay = document.getElementById('mapOverlay') // оверлей
 const modalCloseBtn = document.getElementById('modalClose') // крестик
 const modalSelectBtn = document.getElementById('modalSelect') // кнопка ВЫБРАТЬ
 const modalNotif = document.getElementById('modalNotif') // текст уведомления
 
+// --- ДОБАВЛЯЕМ ЭТИ ДВЕ СТРОКИ ---
+const modalTitle = document.querySelector('.map-modal h3') // ловим заголовок окна
+const modalInfo = document.querySelector('.map-modal p:nth-of-type(1)') // ловим текст описания
+
 let currentSelectedPoint = null
 
 mapPoints.forEach(function (point) {
   point.addEventListener('click', function () {
     currentSelectedPoint = point
+
+    const titleText = point.dataset.title || 'Точка посадки'
+    const infoText = point.dataset.info || 'Нет данных для анализа...'
+
+    modalTitle.textContent = titleText
+    modalInfo.textContent = infoText
+
     modalNotif.textContent = ''
     mapOverlay.classList.add('active')
   })
@@ -156,7 +166,7 @@ modalSelectBtn.addEventListener('click', function () {
     modalNotif.textContent = 'Верно! Здесь Лилия сможет расти.'
     modalNotif.style.color = '#5cb85c'
   } else {
-    modalNotif.textContent = 'Не подходит. Попробуй еще раз.'
+    modalNotif.textContent = 'Не подходит. Попробуй другую точку.'
     modalNotif.style.color = '#ff6400'
   }
 })
@@ -270,10 +280,8 @@ comparisonBtn.addEventListener('click', (e) => {
   e.stopPropagation()
   isHumanToolActive = true
 
-  // Меняем курсор на всем сайте
   document.body.classList.add('human-cursor-active')
 
-  // Подсветим кнопку инструмента
   comparisonBtn.style.backgroundColor = '#c0ff95'
 })
 

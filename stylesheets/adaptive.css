@@ -440,7 +440,7 @@
     left: 10%;
   }
 
-  /* размерыи и расположение стреклочек */
+  /* размеры и расположение стреклочек */
   .dragonfly img:nth-of-type(2) {
     margin: 0;
     top: 13%;
@@ -511,12 +511,22 @@
     background-size: cover;
   }
 
-  /* CЕКЦИЯ 2 */
+  #dimension-dragonfly {
+    right: auto;
+    left: 10px;
+    bottom: 5vw;
+    width: 60vw;
+  }
 
-  /* .wrapper-2 {
-    display: flex;
-    align-items: flex-start;
-  } */
+  .dimension-overlay {
+    padding: 8vw 4vw 4vw 4vw;
+  }
+
+  .dimension-text {
+    font-size: 4vw;
+  }
+
+  /* CЕКЦИЯ 2 */
 
   .section-2 {
     width: 100%;
@@ -558,13 +568,21 @@
     width: 90%;
     margin: 3vw auto;
     padding: 4.5vw 5vw;
+    height: auto;
   }
+
   .quantity p,
   .risk p {
     font-size: 5vw;
   }
+
   .button-1 {
-    font-size: 18px;
+    font-size: 4.5vw;
+    padding: 3vw 6vw;
+    margin-top: 4vw;
+    height: auto;
+    width: fit-content;
+    border: 1px solid #000;
   }
 
   /* КОНСОЛЬ */
@@ -575,18 +593,19 @@
     position: relative;
   }
   .console-name {
-    height: auto;
-    min-height: 60px;
+    height: 3vw;
     padding-left: 4vw;
   }
   .console-name p {
     font-size: 6vw;
     left: 4vw;
   }
+
   .console-input {
-    top: 16vw;
+    top: 19vw;
     left: 4vw;
-    font-size: 24px;
+    width: 85%;
+    font-size: 4.5vw;
   }
 
   /* размер плашек */
@@ -917,6 +936,13 @@
   .heading {
     padding: 74px 0 0 100px;
   }
+
+  #dimension-dragonfly {
+    right: auto;
+    left: 5%;
+    bottom: 20px;
+  }
+
   .coordinates,
   .growth {
     padding: 17px 0 17px 100px;
