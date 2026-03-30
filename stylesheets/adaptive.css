@@ -496,10 +496,11 @@
 
   /* БЛОК С ГРАФИКАМИ */
   .growth {
-    font-size: 6vw;
+    font-size: 4vw;
     order: 3;
     width: 100%;
-    padding: 3vw 5vw;
+    padding-top: 6vw;
+    padding-left: 6vw;
   }
 
   .sprite-graphics {
@@ -691,7 +692,7 @@
     padding-top: 128px;
   }
 
-  /* БОКОВОЕ МЕНЮ И ЕГО ГРАНИЦЫ */
+  /* БОКОВОЕ МЕНЮ */
   .sidebar {
     width: 270px;
     top: 128px;
@@ -764,38 +765,73 @@
   .dragonfly {
     height: 432px;
   }
+
   .dragonfly-img {
     height: 434px;
     width: 518px;
     padding: 47px 0 22px;
   }
-  #txt-1,
-  #txt-2,
-  #txt-3 {
-    font-size: 18px;
+  /* линейки */
+  .dragonfly img:nth-of-type(2) {
+    margin: 0;
+    top: 10%;
+    left: 35%;
   }
+  .dragonfly img:nth-of-type(3) {
+    margin: 0;
+    top: 65%;
+    left: 75px;
+  }
+  .dragonfly img:nth-of-type(4) {
+    margin: 0;
+    top: 155px;
+    left: 70%;
+  }
+
+  #txt-1 {
+    margin: 0;
+    top: 20px;
+    left: 325px;
+  }
+  #txt-2 {
+    margin: 0;
+    top: 60%;
+    left: 155px;
+  }
+  #txt-3 {
+    margin: 0;
+    top: 130px;
+    left: 650px;
+  }
+
   #txt-4,
   #txt-5 {
-    font-size: 23px;
-    margin-top: 391px;
+    margin: 0;
+    bottom: 20px;
   }
   #txt-4 {
-    margin-left: 43px;
+    left: 43px;
   }
   #txt-5 {
-    margin-left: 367px;
+    left: 367px;
   }
 
   .block-2 {
     height: 130px;
   }
-  .quantity,
-  .risk {
+  .quantity {
     height: 108px;
-    margin: 14px 27px 22px 35px;
+    margin: 14px 0 22px 35px;
     padding: 11px 11px 22px 22px;
   }
-  .quantity p,
+
+  .risk {
+    height: 108px;
+    margin: 14px 0 14px 35px;
+    padding: 11px 11px 22px 22px;
+  }
+
+  .risk .quantity p,
   .risk p {
     font-size: 26px;
   }
@@ -812,7 +848,7 @@
     padding: 14px 22px;
   }
   .plant p {
-    font-size: 23px;
+    font-size: 24px;
   }
   .console {
     width: 432px;
@@ -820,7 +856,7 @@
     margin-left: 22px;
   }
   .console-name {
-    height: 43px;
+    height: 60px;
     padding-left: 22px;
   }
   .console-name p {
@@ -845,5 +881,319 @@
   footer {
     font-size: 22px;
     padding: 37px 35px;
+  }
+}
+
+/*  1366×768 (WXGA) */
+@media (min-width: 1366px) {
+  body {
+    max-width: 1366px;
+  }
+
+  header,
+  .main-wrapper {
+    width: 1366px;
+    min-width: 1366px;
+  }
+
+  .section-1,
+  .section-2,
+  .section-3 {
+    width: 1024px;
+  }
+  .sidebar,
+  .instruments {
+    width: 342px;
+  }
+
+  .section-2 {
+    height: auto;
+    padding-bottom: 60px;
+  }
+
+  header {
+    padding: 34px 100px 20px 100px;
+  }
+  .heading {
+    padding: 74px 0 0 100px;
+  }
+  .coordinates,
+  .growth {
+    padding: 17px 0 17px 100px;
+  }
+  #txt-4 {
+    margin-left: 100px;
+  }
+  .quantity {
+    margin-left: 100px;
+  }
+
+  .plant,
+  .map {
+    margin-left: 100px;
+  }
+  footer {
+    padding: 37px 100px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  header p,
+  .header-link,
+  .sidebar-block,
+  .tasks,
+  .coordinates,
+  .growth,
+  .quantity p,
+  .risk p,
+  .console-name p,
+  .button-1,
+  footer {
+    font-size: 20px;
+  }
+
+  #txt-1,
+  #txt-2,
+  #txt-3,
+  #txt-4,
+  #txt-5,
+  .plant p {
+    font-size: 17px;
+  }
+
+  .pencil,
+  .comparison,
+  .ruler,
+  .scan {
+    font-size: 14px;
+  }
+
+  .coordinates,
+  .growth,
+  .sprite-graphics {
+    width: 270px;
+  }
+  .dragonfly {
+    position: relative;
+    height: 520px;
+  }
+
+  .dragonfly-img {
+    position: absolute;
+    height: 400px;
+    width: auto;
+    top: 90px;
+    left: 90px;
+    padding: 0;
+  }
+  .plant {
+    width: 360px;
+    height: 420px;
+  }
+  .console {
+    width: 500px;
+    height: 360px;
+  }
+
+  .map {
+    width: 800px;
+    height: 560px;
+    margin-left: 100px;
+    margin-top: 50px;
+    padding: 20px;
+  }
+
+  .map img:nth-of-type(1) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+/* 1920×1080 (Full HD) */
+@media (min-width: 1920px) {
+  body {
+    max-width: 1920px;
+  }
+
+  header,
+  .main-wrapper {
+    width: 1920px;
+    min-width: 1920px;
+  }
+
+  .section-1,
+  .section-2,
+  .section-3 {
+    width: 1440px;
+  }
+  .sidebar,
+  .instruments {
+    width: 480px;
+  }
+  .sidebar-block {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  header {
+    padding: 48px 180px 28px 180px;
+  }
+  .heading {
+    padding: 104px 0 0 180px;
+  }
+
+  .coordinates,
+  .growth {
+    padding: 24px 0 24px 180px;
+  }
+
+  .dragonfly {
+    height: 730px;
+  }
+  .dragonfly-img {
+    height: 600px;
+    width: auto;
+    top: 80px;
+    left: 160px;
+  }
+
+  /* --- Фиксируем линейки в пикселях для 1920px --- */
+  .dragonfly img:nth-of-type(2) {
+    margin: 0;
+    top: 70px;
+    left: 360px;
+  }
+  .dragonfly img:nth-of-type(3) {
+    margin: 0;
+    top: 505px;
+    left: 135px;
+  }
+  .dragonfly img:nth-of-type(4) {
+    margin: 0;
+    top: 265px;
+    left: 765px;
+  }
+
+  #txt-4,
+  #txt-5 {
+    margin: 0;
+    bottom: 40px;
+  }
+  #txt-4 {
+    left: 180px;
+  }
+  #txt-5 {
+    left: 650px;
+  }
+
+  #txt-1 {
+    margin: 0;
+    top: 32px;
+    left: 440px;
+  }
+  #txt-2 {
+    margin: 0;
+    top: 460px;
+    left: 275px;
+  }
+  #txt-3 {
+    top: 230px;
+    left: 820px;
+  }
+
+  .quantity {
+    margin-left: 180px;
+  }
+  .risk {
+    margin-left: 20px;
+  }
+
+  .plant,
+  .map {
+    margin-left: 180px;
+  }
+  footer {
+    padding: 52px 180px;
+  }
+
+  h1 {
+    font-size: 56px;
+  }
+
+  .coordinates,
+  .growth,
+  .quantity p,
+  .risk p,
+  .console-name p,
+  footer,
+  .sidebar-block {
+    font-size: 28px;
+  }
+
+  header p,
+  .header-link,
+  #txt-1,
+  #txt-2,
+  #txt-3,
+  #txt-4,
+  #txt-5,
+  .plant p,
+  .console-input,
+  .console-input::placeholder,
+  .tasks {
+    font-size: 24px;
+  }
+
+  .pencil,
+  .comparison,
+  .ruler,
+  .scan {
+    font-size: 20px;
+  }
+
+  .button-1 {
+    font-size: 14px;
+    padding: 12px 30px;
+  }
+
+  .coordinates,
+  .growth,
+  .sprite-graphics {
+    width: 420px;
+  }
+
+  .section-2 {
+    padding-bottom: 84px;
+  }
+  .plant {
+    width: 504px;
+    height: 630px;
+  }
+  .console {
+    width: 700px;
+    height: 504px;
+  }
+  .block-2 {
+    height: auto;
+  }
+  .quantity,
+  .risk {
+    height: 140px;
+    padding: 20px 20px 30px 30px;
+  }
+
+  .map {
+    width: 1120px;
+    height: 784px;
+    margin-top: 70px;
+    padding: 56px;
+  }
+  .map img:nth-of-type(1) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
