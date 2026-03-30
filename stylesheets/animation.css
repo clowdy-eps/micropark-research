@@ -30,3 +30,25 @@
     background-position: 0px;
   }
 }
+
+/* анимация мигания плашек */
+@keyframes dangerBlink {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* класс, который JS будет вешать на картинки */
+.show-danger {
+  animation: dangerBlink 0.6s infinite;
+  opacity: 1;
+}

@@ -51,7 +51,7 @@
   }
   .pencil,
   .comparison,
-  .glass,
+  .ruler,
   .scan {
     width: 25%;
     border-top: none;
@@ -65,7 +65,7 @@
   }
   .pencil-img,
   .comparison-img,
-  .glass-img,
+  .ruler-img,
   .scan-img {
     height: 5vw;
     width: auto;
@@ -374,7 +374,7 @@
   }
   .pencil,
   .comparison,
-  .glass,
+  .ruler,
   .scan {
     width: 25%;
     border-top: none;
@@ -714,7 +714,7 @@
   }
   .pencil-img,
   .comparison-img,
-  .glass-img,
+  .ruler-img,
   .scan-img {
     height: 47px;
     width: 86px;
@@ -722,7 +722,7 @@
 
   .pencil,
   .comparison,
-  .glass,
+  .ruler,
   .scan {
     padding: 14px 22px;
     gap: 7px;

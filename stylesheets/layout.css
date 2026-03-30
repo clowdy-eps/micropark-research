@@ -116,35 +116,34 @@ html {
   font-size: 2vw;
 }
 
+/* ИНСТРУМЕНТЫ */
+
+/* расположение и стилизация */
 .instruments {
   display: grid;
-  grid-template-columns: 50% 50%; /* Жестко рубим пространство на 2 равные колонки */
-  width: 100%; /* Растягиваем на всю ширину бокового меню */
+  grid-template-columns: 50% 50%;
+  width: 100%;
   background-color: #fff;
 }
-
 .pencil,
 .comparison,
-.glass,
+.ruler,
 .scan {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .pencil,
 .comparison {
   gap: 0.625vw;
 }
-
 .pencil-img,
 .comparison-img,
-.glass-img,
+.ruler-img,
 .scan-img {
   height: 4.375vw;
   width: 8vw;
 }
-
 .pencil {
   padding: 1.25vw 2vw;
 }
@@ -152,7 +151,7 @@ html {
   border-left: 1px solid #000;
   padding: 1.25vw 2vw;
 }
-.glass {
+.ruler {
   border-top: 1px solid #000;
   border-right: 1px solid #000;
   padding: 1.25vw 2vw;
@@ -160,6 +159,239 @@ html {
 .scan {
   border-top: 1px solid #000;
   padding: 1.25vw 2vw;
+}
+
+/* ИНТЕРВАКТИВЫ*/
+
+/* интерактив сканер */
+.scanner-box {
+  position: absolute;
+  width: 180px; /* Ширина сканера */
+  height: 80px; /* Высота сканера */
+  background-color: #fff; /* Белый цвет дает идеальную инверсию (черный станет белым, а белый черным) */
+  mix-blend-mode: difference;
+  pointer-events: none;
+  display: none; /* Прячем его по умолчанию */
+  z-index: 15;
+  transform: translate(-50%, -50%);
+  border: 1px solid #000;
+}
+/* сравнение */
+/* 1. Стили для спрятанного блока результата */
+.comparison-result-hidden {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border: 1px solid #000;
+  z-index: 20;
+}
+
+/* Когда блок становится видимым */
+.comparison-result-active {
+  display: flex !important;
+}
+
+/* 2. Настройка инпута и кнопки */
+.comparison-input-box {
+  display: flex;
+  gap: 5px;
+}
+
+#comparison-input {
+  border: 1px solid #000;
+  padding: 5px;
+  font-family: inherit;
+  width: 150px;
+}
+#comparison-ok {
+  background: #c0ff95;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+/* 3. Стиль для сохраненных данных */
+#saved-comparison-data {
+  color: #ff6400;
+  margin-top: 5px;
+}
+/* 4. КЛАСС ДЛЯ КУРСОР-ЧЕЛОВЕЧКА */
+/* Применяется к body через JS */
+.human-cursor-active {
+  cursor:
+    url('../images/section-1/man.svg') 16 16,
+    auto !important;
+}
+/* карандаш */
+/* === СТИЛИ ДЛЯ ХОЛСТА (КАРАНДАШ) === */
+.drawing-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Кастомный курсор для карандаша */
+body.pencil-mode-active {
+  /* Цифры "0 32" — это точка касания (hotspot). 
+     Если карандаш рисует не острием, поменяй их (например, на 0 0 или 16 16) */
+  cursor:
+    url('../images/section-1/pencil.svg') 0 32,
+    auto !important;
+}
+
+body.pencil-mode-active .drawing-canvas {
+  pointer-events: auto;
+}
+
+/* Кнопка стирания */
+.clear-canvas-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 3;
+  background-color: #ffdfcb;
+  border: 1px solid #000;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: inherit;
+  display: none;
+}
+
+.clear-canvas-btn:hover {
+  border-color: #ff6400;
+  color: #ff6400;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.clear-canvas-btn:active {
+  color: #ff6400;
+  border-color: #ff6400;
+  background-color: #ffdfcb;
+  cursor: pointer;
+}
+
+/* Интерактив с линейкой */
+/* =========================================
+   ИНСТРУМЕНТ ЛИНЕЙКА (НОВЫЙ ПОДХОД)
+   ========================================= */
+
+/* 1. Класс для активации курсора-линейки (вешается на body) */
+.ruler-cursor-active {
+  cursor:
+    url('../images/section-1/ruler.svg') 16 16,
+    auto !important;
+}
+
+/* 2. Горячие точки для измерения */
+.measurement-hotspot {
+  position: absolute;
+  background-color: rgba(192, 255, 149, 0.4); /* Прозрачный зеленый для теста */
+  border: 2px dashed #000;
+  display: none; /* Прячем по умолчанию */
+  z-index: 50; /* Поверх всего */
+  cursor: pointer;
+}
+
+/* Показываем горячие точки, ТОЛЬКО когда инструмент активен */
+body.ruler-cursor-active .measurement-hotspot {
+  display: block;
+}
+
+/* Позиционирование точек (потребует точной настройки) */
+#hotspot-dragonfly {
+  top: 30%;
+  left: 55%;
+  width: 35%;
+  height: 30%;
+}
+#hotspot-plant {
+  top: 20%;
+  left: 30%;
+  width: 50%;
+  height: 50%;
+}
+
+/* 3. Размерная линия и текст (Размерный оверлей) */
+.dimension-overlay {
+  position: absolute;
+  display: none; /* Прячем до момента измерения */
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border: 1px solid #000;
+  z-index: 60;
+  font-family: 'GeistMono-Regular';
+}
+
+/* Класс активации для показа линии */
+.dimension-overlay.active {
+  display: flex !important;
+}
+
+/* Конкретное положение размерных блоков */
+#dimension-dragonfly {
+  top: 10%;
+  right: -25px;
+  width: 150px;
+}
+#dimension-plant {
+  top: -10px;
+  left: -10px;
+  width: 150px;
+}
+
+/* Визуализация самой размерной линии */
+.dimension-line {
+  height: 2px;
+  background-color: #ff6400; /* Наш фирменный оранжевый */
+  width: 100%;
+  position: relative;
+  margin: 10px 0;
+}
+
+/* Боковые насечки (|) на линии */
+.dimension-line::before,
+.dimension-line::after {
+  content: '';
+  position: absolute;
+  height: 10px;
+  width: 2px;
+  background-color: #ff6400;
+  top: -4px;
+}
+
+.dimension-line::before {
+  left: 0;
+}
+.dimension-line::after {
+  right: 0;
+}
+
+.dimension-text {
+  color: #ff6400;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Кнопка закрытия линии (крестик) */
+.dim-close {
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
 }
 
 /* ЗАДАЧИ */
@@ -192,9 +424,10 @@ html {
   border: 1px solid #000;
 }
 .progressBarLine {
-  background: #c0ff95;
+  background: #67dc15;
   height: 100%;
   opacity: 0;
+  transition: width 0.4s ease;
 }
 .progressBarNumber {
   position: absolute;
@@ -230,13 +463,17 @@ html {
   flex-direction: row;
 }
 
+/* блок с координатами */
 .coordinates {
   width: 20vw;
   padding: 1.56vw 0 4.06vw 3.2vw;
   border-top: 1px solid #000;
-  /* border-right: 1px solid #000; */
   font-size: 2vw;
   background-color: #fff;
+}
+
+#coords-value {
+  color: #ff6400;
 }
 
 .cursor {
@@ -291,6 +528,7 @@ html {
   position: absolute;
   height: 40.18vw;
   width: 48vw;
+  object-fit: contain;
   padding: 4.375vw 0 2vw;
 }
 
@@ -348,8 +586,8 @@ html {
 .quantity,
 .risk {
   display: flex;
-  flex-direction: column; /* Выстраиваем содержимое в колонку */
-  justify-content: space-between; /* Равномерно распределяем пространство */
+  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
   height: 10vw;
   margin: 1.25vw 2.5vw 2vw 3.2vw;
@@ -387,6 +625,7 @@ html {
 
 .plant-img {
   width: 70%;
+  object-fit: contain;
   padding-left: 3vw;
 }
 
@@ -423,7 +662,7 @@ html {
   background: transparent;
   border: none;
   outline: none;
-  color: #fff;
+  color: #ff6400;
   font-size: 1.7vw;
   width: 80%;
   height: 6vw;
@@ -563,6 +802,66 @@ html {
   position: absolute;
   top: 70%;
   left: 70%;
+}
+
+/* для интерактива с картой */
+
+/* Темный полупрозрачный фон на весь экран */
+.map-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000; /* Кладем поверх всего интерфейса */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Прячем окно по умолчанию */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Класс, который наш JS будет вешать для показа окна */
+.map-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* белая карточка */
+.map-modal {
+  background-color: #fff;
+  padding: 40px;
+  width: 400px;
+  border: 1px solid #000;
+  position: relative;
+  text-align: center;
+  font-family: 'GeistMono-Regular';
+}
+
+/* Крестик в углу */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Стили для текста уведомления */
+.modal-notification {
+  margin: 20px 0;
+  font-size: 24px;
+  color: #ff6400;
+  min-height: 28px;
+}
+.point {
+  cursor: pointer;
 }
 
 /* ФУТЕР */
